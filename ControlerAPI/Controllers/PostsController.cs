@@ -2,6 +2,7 @@
 using ControlerAPI.Models;
 using ControlerAPI.Service;
 using System.Web.Http.Cors;
+using System.Threading.Tasks;
 
 namespace ControlerAPI.Controllers
 {
@@ -15,24 +16,24 @@ namespace ControlerAPI.Controllers
             service = _service;
         }
 
-        public IHttpActionResult GetPosts()
+        public async Task<IHttpActionResult> GetPosts()
         {
-            var posts = service.Get();
+            var posts = await service.Get();
             if (posts != null)
                 return Ok(posts);
             return NotFound();
         }
 
-        public IHttpActionResult Put(Post _post)
+        public async Task<IHttpActionResult> Put(Post _post)
         {
-            service.Edit(_post);
+            await service.Edit(_post);
             return Ok(_post);
         }
 
 
-        public IHttpActionResult Post(Post _post)
+        public async Task<IHttpActionResult> Post(Post _post)
         {
-            service.Add(_post);
+            await service.Add(_post);
             return Ok(_post);
         }
 

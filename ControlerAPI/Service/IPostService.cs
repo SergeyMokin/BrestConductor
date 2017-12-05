@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using ControlerAPI.Models;
+using System.Threading.Tasks;
 
 namespace ControlerAPI.Service
 {
     public interface IPostService
     {
-        IEnumerable<Post> Get();
+        Task<IEnumerable<Post>> Get();
 
-        void Edit(Post _post);
+        Task Edit(Post _post);
 
-        void Add(Post _post);
+        Task Add(Post _post);
     }
 }
