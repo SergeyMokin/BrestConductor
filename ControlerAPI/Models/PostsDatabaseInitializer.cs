@@ -42,12 +42,9 @@ namespace ControlerAPI.Models
                     {
                         Post post = new Post
                         {
-                            Id = el.Id
-                            ,
-                            Date = el.Date
-                            ,
-                            Message = el.Text
-                            ,
+                            Id = el.Id,
+                            Date = el.Date,
+                            Message = el.Text,
                             LastConfirmDate = el.Date
                         };
                         if (!db.GetAll().Where(x => x.Date == x.Date).Where(x => x.Message.Equals(post.Message)).Any())
